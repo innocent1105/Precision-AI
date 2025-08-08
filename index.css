@@ -1,0 +1,349 @@
+@import 'tailwindcss';
+@custom-variant dark (&:is(.dark *));
+@tailwind utilities;
+
+:root {
+	--radius: 0.625rem;
+	--background: #f5f5f5;
+	--foreground: #0b0809;
+	--card: #ffffff;
+	--card-foreground: #0b0809;
+	--popover: #ffffff;
+	--popover-foreground: #0b0809;
+	--primary: #6180e4;
+	--primary-foreground: #e8e8e8;
+	--secondary: #616a72;
+	--secondary-foreground: #ffffff;
+	--muted: #f5f4f4;
+	--muted-foreground: #71717b;
+	--accent: #f5f4f4;
+	--accent-foreground: #1b1718;
+	--destructive: #e7000b;
+	--border: #e7e3e4;
+	--input: #e7e3e4;
+	--ring: #9f9fa9;
+	--sidebar: #f5f5f5;
+	--sidebar-foreground: #0b0809;
+	--sidebar-primary: #6180e4;
+	--sidebar-primary-foreground: #fafafa;
+	--sidebar-accent: #f5f4f4;
+	--sidebar-accent-foreground: #1b1718;
+	--sidebar-border: #e7e3e4;
+	--sidebar-ring: oklch(0.705 0.015 286.067);
+	--sidebar-menu-icon: #ededed;
+	--linear-gradient: linear-gradient(to right, #5a81ea, #d56676);
+	--chart-1: #2563eb;
+	--chart-2: #60a8fb;
+	--chart-3: #3b86f7;
+	--chart-4: #90c7fe;
+	--chart-5: #bedcfe;
+	--calendar-header-bg: var(--card);
+	--calendar-header-fg: var(--card-foreground);
+	--color-success: #00a63e;
+	--color-warning: #f0b100;
+	--color-error: #f34850;
+	--color-info: #4949ff;
+	--color-bg-muted: #616a72;
+
+}
+
+.dark {
+	--background: #0b0809;
+	--foreground: #fafafa;
+	--card: #232323;
+	--card-foreground: #e8e8e8;
+	--popover: #1b1718;
+	--popover-foreground: #fafafa;
+	--primary-foreground: #fafafa;
+	--secondary: #616a72;
+	--secondary-foreground: #f5f6f6;
+	--muted: #2a2627;
+	--muted-foreground: #9f9fa9;
+	--accent: #2a2627;
+	--accent-foreground: #fafafa;
+	--destructive: #ff6467;
+	--border: #ffffff1a;
+	--input: #ffffff26;
+	--ring: #71717b;
+	--sidebar: #0b0809;
+	--sidebar-foreground: #fafafa;
+	--sidebar-primary-foreground: #fafafa;
+	--sidebar-accent: #2a2627;
+	--sidebar-accent-foreground: #fafafa;
+	--sidebar-border: #ffffff1a;
+	--sidebar-ring: #71717b;
+	--sidebar-menu-icon: #282828;
+	--chart-1: #2563eb;
+	--chart-2: #60a8fb;
+	--chart-3: #3b86f7;
+	--chart-4: #90c7fe;
+	--chart-5: #bedcfe;
+}
+
+@theme inline {
+	--radius-sm: calc(var(--radius) - 4px);
+	--radius-md: calc(var(--radius) * 2);
+	--radius-lg: var(--radius);
+	--radius-xl: calc(var(--radius) + 4px);
+	--color-background: var(--background);
+	--color-foreground: var(--foreground);
+	--color-card: var(--card);
+	--color-card-foreground: var(--card-foreground);
+	--color-popover: var(--popover);
+	--color-popover-foreground: var(--popover-foreground);
+	--color-primary: var(--primary);
+	--color-primary-foreground: var(--primary-foreground);
+	--color-secondary: var(--secondary);
+	--color-secondary-foreground: var(--secondary-foreground);
+	--color-muted: var(--muted);
+	--color-muted-foreground: var(--muted-foreground);
+	--color-accent: var(--accent);
+	--color-accent-foreground: var(--accent-foreground);
+	--color-destructive: var(--destructive);
+	--color-border: var(--border);
+	--color-input: var(--input);
+	--color-ring: var(--ring);
+	--color-chart-1: var(--chart-1);
+	--color-chart-2: var(--chart-2);
+	--color-chart-3: var(--chart-3);
+	--color-chart-4: var(--chart-4);
+	--color-chart-5: var(--chart-5);
+	--color-sidebar: var(--sidebar);
+	--color-sidebar-foreground: var(--sidebar-foreground);
+	--color-sidebar-primary: var(--sidebar-primary);
+	--color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+	--color-sidebar-accent: var(--sidebar-accent);
+	--color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+	--color-sidebar-border: var(--sidebar-border);
+	--color-sidebar-ring: var(--sidebar-ring);
+	--color-input-background: var(--card);
+}
+
+@layer base {
+	* {
+		@apply border-border outline-ring/50;
+	}
+
+	body {
+		@apply bg-background text-foreground;
+	}
+}
+
+.heading {
+	background: -webkit-linear-gradient(45deg, #5a81ea, #d56676);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	-webkit-text-fill-color: transparent;
+}
+
+.sidemenu-background {
+	background: var(--linear-gradient);
+}
+
+.sidemenu-icon {
+	background: var(--sidebar-menu-icon);
+}
+
+.table-row-background {
+	background: var(--card);
+}
+
+.cursor-pointer {
+	cursor: pointer;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+	display: none;
+}
+
+.hide-scrollbar {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+
+:root {
+	--calendar-border-color: var(--border);
+}
+
+.fc-theme-standard .fc-scrollgrid,
+.fc-theme-standard td,
+.fc-theme-standard th {
+	border-color: var(--calendar-border-color) !important;
+}
+
+.fc-theme-standard .fc-col-header-cell {
+	background-color: var(--background) !important;
+	font-weight: 400 !important;
+}
+
+.fc-theme-standard .fc-col-header-cell-cushion {
+	color: var(--card-foreground) !important;
+	font-weight: 400 !important;
+}
+
+.fc-theme-standard .fc-col-header,
+.fc-theme-standard .fc-col-header-cell {
+	background-color: var(--calendar-header-bg) !important;
+	color: var(--calendar-header-fg) !important;
+}
+
+.fc .fc-button:focus,
+.fc .fc-button:active:focus,
+.fc .fc-button-primary:focus,
+.fc .fc-button-primary:active:focus {
+	box-shadow: none !important;
+	outline: none !important;
+
+}
+
+.fc .fc-button {
+	box-shadow: none !important;
+	border-color: var(--border) !important;
+}
+
+.fc .fc-button {
+	padding: 0.25rem 0.5rem !important;
+	/* font-size: 0.875rem !important; */
+}
+
+.fc .fc-toolbar-chunk {
+	display: flex;
+	gap: 0.25rem;
+}
+
+.fc .fc-toolbar-title {
+	margin-top: 0.5rem !important;
+	font-size: 1.2rem !important;
+	margin-bottom: 0.5rem !important;
+	font-weight: 600 !important;
+}
+
+.fc .fc-button-primary {
+	background-color: transparent !important;
+	border-color: var(--border) !important;
+	color: var(--foreground) !important;
+}
+
+.fc .fc-button-primary:hover {
+	background-color: var(--card) !important;
+}
+
+.fc .fc-button-primary:not(:disabled):active,
+.fc .fc-button-primary:not(:disabled).fc-button-active {
+	background-color: var(--primary) !important;
+	color: var(--primary-foreground) !important;
+	border-color: var(--border) !important;
+}
+
+.fc .fc-today-button {
+	background-color: var(--primary) !important;
+	border-color: var(--primary) !important;
+	color: var(--primary-foreground) !important;
+	border-radius: calc(var(--radius) * 2) !important;
+}
+
+.fc .fc-today-button:hover {
+	background-color: var(--primary-hover) !important;
+	border-color: var(--primary-hover) !important;
+}
+
+.fc .fc-today-button:disabled {
+	background-color: var(--primary) !important;
+	border-color: var(--primary) !important;
+	color: var(--primary-foreground) !important;
+	opacity: 0.7 !important;
+}
+
+.fc .fc-toolbar-chunk {
+	display: flex;
+	gap: 0.5rem;
+}
+
+.fc .fc-prev-button {
+	margin-right: 0.25rem !important;
+	border-radius: calc(var(--radius) * 2) !important;
+}
+
+.fc .fc-next-button {
+	margin-left: 0.25rem !important;
+	border-radius: calc(var(--radius) * 2) !important;
+}
+
+.fc .fc-toolbar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.fc .fc-toolbar-chunk {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.fc .fc-prev-button,
+.fc .fc-next-button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 2rem;
+	width: 2rem;
+	padding: 0 !important;
+}
+
+@media (max-width: 640px) {
+	.fc .fc-toolbar {
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.fc .fc-toolbar-chunk {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+	}
+
+	.fc .fc-toolbar-title {
+		font-size: 1.1rem !important;
+	}
+
+	.fc .fc-button {
+		padding: 0.25rem 0.5rem !important;
+		font-size: 0.875rem !important;
+	}
+
+	.fc .fc-view-harness {
+		min-height: 400px;
+	}
+
+}
+
+.fc .fc-toolbar-chunk .fc-button-group {
+	border-radius: calc(var(--radius) * 2) !important;
+	overflow: hidden;
+
+	.fc-button {
+		display: flex !important;
+		align-items: center !important;
+		justify-content: center !important;
+		text-align: center !important;
+		background-color: transparent !important;
+	}
+
+	.fc-button:last-child {
+		border-top-right-radius: calc(var(--radius) * 2) !important;
+		border-bottom-right-radius: calc(var(--radius) * 2) !important;
+	}
+
+	.fc-button:first-child {
+		border-top-left-radius: calc(var(--radius) * 2) !important;
+		border-bottom-left-radius: calc(var(--radius) * 2) !important;
+	}
+
+	.fc-button-active {
+		background-color: var(--primary) !important;
+		border-color: var(--primary) !important;
+		color: var(--primary-foreground) !important;
+	}
+}
